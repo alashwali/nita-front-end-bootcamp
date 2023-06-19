@@ -14,48 +14,69 @@
 }
 .yellowgreen-rounded-rectangle {
   background-color: yellowgreen;
-  
+
   width: 300px;
   height: 200px;
   /* border-radius: 20%; */
 }
-p.x{
-    color: white;  
-    top: 190px;
-    left: 120px;
+p.x {
+  color: white;
+  top: 190px;
+  left: 120px;
 }
-p{
-    position: absolute;
-    color: black;  
-    left: 110px;
-    z-index: 1;
+p {
+  position: absolute;
+  color: black;
+  left: 110px;
+  z-index: 1;
 }
-.palau{
-    background-color: rgb(192, 255, 236);
-    width: 300px;
-    height: 200px;
+
+/* start palau flag */
+.palau {
+  background-color: rgb(192, 255, 236);
+  width: 300px;
+  height: 200px;
 }
 .circle-palau {
-    background-color: rgb(208, 255, 0);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 470px;
+  left: 100px;
+}
+h3{
     position: absolute;
-    top: 500px;
-    left: 100px;
+    color: black;
+    left: 110px;
+    top: 490px;
+    z-index: 1;
   }
-  .japan{
-    background-color: rgb(255, 255, 255);
-    width: 300px;
-    height: 200px;
-    border: 1px solid 
+  
+/* end palau flag */
+
+/* start japan flag */
+.japan {
+  background-color: rgb(255, 255, 255);
+  width: 300px;
+  height: 200px;
+  border: 1px solid;
 }
 .circle {
-    background-color: rgb(255, 0, 0);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+  background-color: rgb(255, 0, 0);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 700px;
+  left: 100px;
+}
+h3.japan-title{
     position: absolute;
-    top: 800px;
-    left: 100px;
+    color: black;
+    left: 130px;
+    top: 720px;
+    z-index: 1;
   }
+/* end japan flag */
