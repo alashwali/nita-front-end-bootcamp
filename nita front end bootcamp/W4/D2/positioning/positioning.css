@@ -20,7 +20,6 @@
   /* border-radius: 20%; */
 }
 p.x{
-    position: absolute;
     color: white;  
     top: 190px;
     left: 120px;
@@ -31,3 +30,32 @@ p{
     left: 110px;
     z-index: 1;
 }
+.palau{
+    background-color: rgb(192, 255, 236);
+    width: 300px;
+    height: 200px;
+}
+.circle-palau {
+    background-color: rgb(208, 255, 0);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 500px;
+    left: 100px;
+  }
+  .japan{
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 200px;
+    border: 1px solid 
+}
+.circle {
+    background-color: rgb(255, 0, 0);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 800px;
+    left: 100px;
+  }
