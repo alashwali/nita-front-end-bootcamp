@@ -12,11 +12,8 @@ footer {
   padding: 30px;
   text-align: center;
 }
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+
+
 ul,
 a,
 li {
@@ -32,11 +29,21 @@ nav {
 }
 article {
   padding-left: 10px;
+
+}
+section::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 @media (mzx-width: 600px) {
-  nav,
-  active {
+  nav, article{
     width: 100%;
     height: auto;
   }
 }
+  aside{
+    background-color: wheat;
+    height: 300px;
+    float: right;
+  }

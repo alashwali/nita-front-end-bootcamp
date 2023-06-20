@@ -25,6 +25,13 @@ a {
   color: rgb(0, 0, 0);
   line-height: 100px;
 }
+nav{flex: 1;}
 article {
   padding-left: 20px;
+  width: 1100px;
+  flex: 5;
+}
+aside {
+  flex: 2;
+  background-color: wheat;
 }
