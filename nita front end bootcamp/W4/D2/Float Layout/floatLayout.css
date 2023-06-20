@@ -13,18 +13,22 @@ footer {
   text-align: center;
 }
 section {
-  display: flex;
+  
 }
-nav,
 ul,
-a {
+a,
+li {
   background-color: wheat;
   text-decoration: none;
   list-style: none;
-  width: 120px;
   color: rgb(0, 0, 0);
   line-height: 100px;
 }
+nav{
+    float: left ;
+    width: 30%;
+    height: 450px;
+}
 article {
-  padding-left: 20px;
+    padding-left: 20px;
 }
