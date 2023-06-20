@@ -25,7 +25,9 @@ a {
   color: rgb(0, 0, 0);
   line-height: 100px;
 }
-nav{flex: 1;}
+nav {
+  flex: 1;
+}
 article {
   padding-left: 20px;
   width: 1100px;
@@ -34,4 +36,14 @@ article {
 aside {
   flex: 2;
   background-color: wheat;
+}
+.gridParent {
+  padding: 10px;
+  /* display: grid; */
+  grid-template-columns: auto auto auto;
+  display: flex;
+}
+.gridItem{
+  flex: 1;
+
 }
