@@ -26,14 +26,17 @@ body {
 }
 
 footer {
-  background-color: rgb(87, 83, 78);
+  background-color: #C3C6C4;
   color: aliceblue;
-  padding: 30px;
+  padding: 10px;
   text-align: center;
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
+}
+footer>img{
+  padding-left: 90%;
 }
 section{
     text-align: center;
