@@ -19,14 +19,14 @@
 }
 body {
   background-color: F5F5F5;
-  background-image: url("./index/photo-1587734195503-904fca47e0e9-removebg-preview\ 1.png");
+  /* background-image: url("./index/photo-1587734195503-904fca47e0e9-removebg-preview\ 1.png");
   background-repeat: no-repeat;
   background-position: right;
-  background-attachment: fixed;
+  background-attachment: fixed; */
 }
 
 footer {
-  background-color: #C3C6C4;
+  background-color: #c3c6c4;
   color: aliceblue;
   padding: 10px;
   text-align: center;
@@ -34,27 +34,37 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  z-index: -1;
 }
-footer>img{
-  padding-left: 90%;
+footer > img {
+  text-align: center;
+  padding-left: 20%;
 }
-section{
-    text-align: center;
-    color: #4C2510;
+section {
+  text-align: center;
+  color: #4c2510;
 }
-section > p{
-    text-align: justify;
-    padding-left: 100px;
-    color: #4C3610
+section > p {
+  text-align: justify;
+  padding-left: 100px;
+  color: #4c3610;
+  cursor:text;
+
 }
 .gridParent {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    display: flex;
-    position: absolute;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  display: flex;
+  position: absolute;
   left: 45em;
   top: 35em;
-  }
- 
-  
+  cursor:wait;
+
+}
+#img{
+  z-index: 1;
+  position: absolute;
+  left: 54%;
+  bottom: 0;
+}

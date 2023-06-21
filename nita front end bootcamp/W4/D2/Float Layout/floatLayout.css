@@ -34,7 +34,7 @@ article {
 section::after {
   content: "";
   display: table;
-  clear: both;
+  clear:both;
 }
 @media (mzx-width: 600px) {
   nav, article{
@@ -45,5 +45,5 @@ section::after {
   aside{
     background-color: wheat;
     height: 300px;
-    float: right;
+    float: right; 
   }

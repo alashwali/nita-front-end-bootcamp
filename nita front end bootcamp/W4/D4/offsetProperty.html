@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #frameDiv {
+        width: 400px;
+        height: 170px;
+        margin: 20px;
+        position: relative;
+        border: solid black 1px;
+      }
+
+      img {
+        position: absolute;
+        z-index: 1;
+        width: 80px;
+        offset: path("M 50 80 C 150 -20 250 180 350 80") 150px auto 45deg;
+        animation: moveImg 2.5s 1s 5;
+      }
+
+      svg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      @keyframes moveImg {
+        100% {
+          offset-distance: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>offsetProperty</h1>
+    <div id="frameDiv">
+      <img
+        src="/D3/coffeeBeans/index/c353215aec587b47071b8dafa449362d6e9e47dfa9941f921c5b70e0cbb8c228-removebg-preview 1.png"
+        alt=""
+      />
+      <svg fill="none" stroke="gray" stroke-width="2" stroke-dasharray="5,5">
+        <path d="M 50 80 C 150 -20 250 180 350 80" />
+      </svg>
+    </div>
+  </body>
+</html>
