@@ -13,11 +13,11 @@
         border: solid black 1px;
       }
 
-      img {
+      .img {
         position: absolute;
         z-index: 1;
         width: 80px;
-        offset: path("M10 100 L 300 100 ") 50px ;
+        offset: path("M10 100 L 300 100 ") 50px;
         animation: moveImg 2.5s 1s 2 alternate;
       }
 
@@ -34,18 +34,35 @@
           offset-distance: 100%;
         }
       }
+      .imageFilter {
+        filter: blur(3px);
+        /* opacity: 0.3; */
+        /* filter: brightness(100%); */
+      }
     </style>
   </head>
   <body>
     <div id="frameDiv">
       <img
+        class="img"
         src="/D3/coffeeBeans/index/c353215aec587b47071b8dafa449362d6e9e47dfa9941f921c5b70e0cbb8c228-removebg-preview 1.png"
         alt=""
       />
-      <svg height="210" width="400" stroke="black" style="background-color: antiquewhite">
-        <path d="M50 100 L 300 100 " />
+      <svg
+        height="210"
+        width="400"
+        stroke="black"
+        style="background-color: antiquewhite"
+      >
+        <path d="M50 100 L 300 100" />
         Sorry, your browser does not support inline SVG.
       </svg>
+    </div>
+    <div class="imageFilter">
+      <img
+        src="/D3/coffeeBeans/index/c353215aec587b47071b8dafa449362d6e9e47dfa9941f921c5b70e0cbb8c228-removebg-preview 1.png"
+        alt=""
+      />
     </div>
   </body>
 </html>
