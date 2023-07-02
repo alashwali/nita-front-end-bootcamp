@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JS Demonstrations</h1>
+    <p>This is a Demonstrations of The Basics of javascript</p>
+    <h3>
+      press control + shift + I to go to Developer tools and then go to console
+    </h3>
+    <button id="add">Show the Date</button>
+    <pre id="fullDate">Full Date: </pre>
+    <pre id="year">Year: </pre>
+    <pre id="month">Month: </pre>
+    <pre id="day">Day: </pre>
+    <pre id="hours">Hours: </pre>
+    <pre id="minutes">Minutes: </pre>
+    <pre id="seconds">Seconds: </pre>
+
+    <script>
+      // ----------------------------------------------------
+      let fullDate = new Date();
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "friday",
+        "saturday",
+      ];
+      let d = fullDate.getDay();
+      let day = days[d];
+      // ----------------------------------------------------
+      const months = [
+        "jan",
+        "fab",
+        "mar",
+        "apr",
+        "may",
+        "jun",
+        "jul",
+        "aug",
+        "sep",
+        "oct",
+        "nov",
+        "dec",
+      ];
+      let m = fullDate.getMonth();
+      let month = months[m];
+
+      // START GET DATE
+      document.getElementById("add").addEventListener("click", function () {
+        document.getElementById("fullDate").innerHTML =
+          "Full Date: " + fullDate;
+        document.getElementById("year").innerHTML =
+          "Year: " + fullDate.getFullYear();
+        document.getElementById("month").innerHTML = "month: " + month;
+        document.getElementById("day").innerHTML = "Day: " + day;
+        document.getElementById("hours").innerHTML =
+          "Hours: " + fullDate.getHours();
+        document.getElementById("minutes").innerHTML =
+          "Minutes: " + fullDate.getMinutes();
+        document.getElementById("seconds").innerHTML =
+          "Seconds: " + fullDate.getSeconds();
+      });
+      // END GET DATE
+    </script>
+  </body>
+</html>
