@@ -19,7 +19,6 @@
     <pre id="hours">Hours: </pre>
     <pre id="minutes">Minutes: </pre>
     <pre id="seconds">Seconds: </pre>
-
     <script>
       // ----------------------------------------------------
       let fullDate = new Date();
@@ -51,7 +50,13 @@
       ];
       let m = fullDate.getMonth();
       let month = months[m];
-
+      let h = fullDate.getHours();
+      let hours;
+      if (h >= 13) {
+        hours = h - 12 + " pm";
+      } else {
+        hours = h + " am";
+      }
       // START GET DATE
       document.getElementById("add").addEventListener("click", function () {
         document.getElementById("fullDate").innerHTML =
@@ -60,14 +65,26 @@
           "Year: " + fullDate.getFullYear();
         document.getElementById("month").innerHTML = "month: " + month;
         document.getElementById("day").innerHTML = "Day: " + day;
-        document.getElementById("hours").innerHTML =
-          "Hours: " + fullDate.getHours();
+        document.getElementById("hours").innerHTML = "Hours: " + hours;
         document.getElementById("minutes").innerHTML =
           "Minutes: " + fullDate.getMinutes();
         document.getElementById("seconds").innerHTML =
           "Seconds: " + fullDate.getSeconds();
       });
       // END GET DATE
+      const num = 3.14159;
+      let st = "3.14159";
+      console.log(num.toString());
+      console.log(num.toFixed());
+      console.log(st.padStart());
+      console.log(num.toPrecision());
+      console.log(Math.PI);
+      console.log(Math.random());
+      console.log(Math.ceil(1.1));
+      // Count Characters
+      let cDay = day.trim().length;
+      let cMonth = month.trim().length;
+      console.log(`Day Characters= ${cDay},\nMonth Characters= ${cMonth}.`);
     </script>
   </body>
 </html>
