@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="Test">Test</p>
+    <p id="userAge">Test</p>
+    <script>
+      document.getElementById("Test").innerHTML = "This is a Test";
+      const num = 3.14159;
+      let st = "3.14159";
+      console.log(num.toString());
+      console.log(num.toFixed());
+      console.log(st.padStart());
+      console.log(Number(st));
+      console.log(num.toPrecision());
+      console.log(Math.PI);
+      console.log(Math.floor(Math.random() * 11));
+      console.log(Math.random());
+      console.log(Math.round(num));
+      console.log(Math.ceil(num));
+      console.log(parseInt(st));
+      console.log(parseFloat(st));
+      console.log(Math.pow(1, 5));
+      console.log(Math.sqrt(5555));
+      console.log(Math.sin(11.11));
+      alert(10 - 1); //popup
+      confirm("confirm"); // ok of cancel
+      let birthYear = prompt("Enter your birth Year to Calculate you Age"); //with input field
+      let emptyCheck = birthYear == "" ? " " : 2023 - birthYear;
+      document.getElementById("userAge").innerHTML = emptyCheck;
+    </script>
+  </body>
+</html>

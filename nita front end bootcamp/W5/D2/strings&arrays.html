@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="array"></p>
+    <script>
+      let text1 = "Hi From Dammam ";
+      let text2 = "This is a great place ";
+      let arrayOfStrings = [];
+      //   START STRINGS & ARRAYS METHOD
+      //   STRING
+      arrayOfStrings.push(text1.length);
+      arrayOfStrings.push(text1.slice());
+      arrayOfStrings.push(text1.substring());
+      arrayOfStrings.push(text1.replace());
+      arrayOfStrings.push(text1.toLowerCase());
+      arrayOfStrings.push(text1.toLocaleUpperCase());
+      arrayOfStrings.push(text1.concat(text2));
+      arrayOfStrings.push("This".concat(" is a Demonstration"));
+      arrayOfStrings.push(text1.replace(" Dammam", " khobar"));
+      arrayOfStrings.push(text1.split(" "));
+      arrayOfStrings.push(text1.charAt(8));
+      arrayOfStrings.push(text1.charCodeAt(8));
+      //   STRING
+
+      // ARRAY
+      arrayOfStrings.pop();
+      console.log(arrayOfStrings.length);
+      arrayOfStrings.splice(
+        9,
+        "splice",
+        "splice",
+        "splice",
+        "splice"
+      );
+      arrayOfStrings.push("pushed element");
+      arrayOfStrings.shift();
+      // ARRAY
+
+      //   END STRINGS & ARRAYS METHOD
+      arrayOfStrings.forEach((element) => {
+        console.log(element);
+        document.getElementById("array").innerHTML += `${element}<br>`;
+      });
+      console.log(arrayOfStrings.flat()); //creates a new array with sub-array elements concatenated to a specified depth.
+      console.log(arrayOfStrings.toString());
+      console.log(arrayOfStrings.slice(2, 5));
+    </script>
+  </body>
+</html>

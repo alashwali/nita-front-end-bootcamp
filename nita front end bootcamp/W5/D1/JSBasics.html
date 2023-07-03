@@ -51,12 +51,7 @@
       let m = fullDate.getMonth();
       let month = months[m];
       let h = fullDate.getHours();
-      let hours;
-      if (h >= 13) {
-        hours = h - 12 + " pm";
-      } else {
-        hours = h + " am";
-      }
+      let hours = h > 12 ? h - 12 + " pm" : h + " am";
       // START GET DATE
       document.getElementById("add").addEventListener("click", function () {
         document.getElementById("fullDate").innerHTML =
@@ -72,18 +67,16 @@
           "Seconds: " + fullDate.getSeconds();
       });
       // END GET DATE
-      const num = 3.14159;
-      let st = "3.14159";
-      console.log(num.toString());
-      console.log(num.toFixed());
-      console.log(st.padStart());
-      console.log(num.toPrecision());
-      console.log(Math.PI);
-      console.log(Math.random());
-      console.log(Math.ceil(1.1));
+
       // Count Characters
       let cDay = day.trim().length;
       let cMonth = month.trim().length;
+      let cMonths = months.length;
+      months.forEach((element) => {
+        console.log(element.trim().length);
+        console.log(element);
+      });
+      console.log(cMonths);
       console.log(`Day Characters= ${cDay},\nMonth Characters= ${cMonth}.`);
     </script>
   </body>
