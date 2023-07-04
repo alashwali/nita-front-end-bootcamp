@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+            // taking kilometers input from the user
+            //   const kilometers = prompt("Enter value in kilometers: ");
+            // conversion factor
+            const factor = 0.621371;
+            // calculate miles
+            //   const miles = kilometers * factor;
+
+            const miles = prompt("Enter value in miles: ");
+            let kilometers = miles / factor;
+            kilometers = kilometers.toFixed(5);
+            console.log(`${miles} kilometers is equal to ${kilometers} miles.`);
+
+            // program to convert celsius to fahrenheit
+            // ask the celsius value to the user
+            // calculate fahrenheit
+            const fahrenheit = prompt("Enter a fahrenheit value: ");
+            //   const celsius = ((fahrenheit - 32) * 5) / 9;
+            const celsius = Math.floor((fahrenheit - 32) / 1.8);
+
+            // display the result
+            console.log(
+              `${celsius} degree celsius is equal to ${fahrenheit} degree fahrenheit.`
+            );
+
+            const result = Math.sqrt(number);
+            console.log(result);
+            //Program to Find Sum of Two Numbers:-
+            // store input numbers
+            const num1 = parseInt(prompt("Enter the first number "));
+            const num2 = parseInt(prompt("Enter the second number"));
+            //add two numbers
+            const sum = num1 + num2;
+            const number = prompt("enter your number");
+
+            // display the sum
+            console.log(`The sum of ${num1} and ${num2} is ${sum}`);
+
+            // JavaScript program to find the area of a triangle
+            const side1 = parseInt(prompt("Enter side1: "));
+            const side2 = parseInt(prompt("Enter side2: "));
+            const side3 = parseInt(prompt("Enter side3: "));
+            // calculate the semi-perimeter
+            const s = (side1 + side2 + side3) / 2;
+            //calculate the area
+            const areaValue = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+            console.log(`The area of the triangle is ${areaValue}`);
+
+
+    </script>
+  </body>
+</html>

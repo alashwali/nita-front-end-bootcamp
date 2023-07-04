@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Please select your operator:</p>
+    <input type="radio" id="add" name="operator" value="one" />
+    <label for="add">ADD(+)</label><br />
+    <input type="radio" id="minus" name="operator" value="two" />
+    <label for="minus">MINUS(-)</label><br />
+    <input type="radio" id="mul" name="operator" value="three" />
+    <label for="mul">mul(*)</label><br />
+    <input type="radio" id="div" name="operator" value="four" />
+    <label for="div">div(/)</label><br /><br /><br />
+    <label for="number1"
+      >enter your first number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+    >
+    <input type="text" id="number1" /><br /><br />
+    <label for="number2">enter your second number</label>
+    <input type="text" id="number2" /><br /><br />
+    <h3 id="h3"></h3>
+    <button id="cal">cal</button>
+
+    <script>
+      document.getElementById("cal").addEventListener("click", function () {
+        const number1 = document.getElementById("number1").value;
+        const number2 = document.getElementById("number2").value;
+        console.log(number1);
+        let operator = document.querySelector(
+          "input[name=operator]:checked"
+        ).value;
+        let result;
+        switch (operator) {
+          case "one":
+            result = parseInt(number1 + number2);
+            console.log(number1 + number2);
+            document.getElementById("h3").innerHTML = result;
+
+            break;
+          case "two":
+            result = number1 - number2;
+            document.getElementById("h3").innerHTML = result;
+
+            break;
+          case "three":
+            result = number1 * number2;
+            document.getElementById("h3").innerHTML = result;
+
+            break;
+          case "four":
+            result = number1 / number2;
+            document.getElementById("h3").innerHTML = result;
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
