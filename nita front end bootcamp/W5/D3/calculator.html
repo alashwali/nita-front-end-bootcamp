@@ -4,56 +4,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      section {
+        border: 5px solid;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+        width: 500px;
+        height: 500px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="radio"] {
+      }
+      button {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+      /* #alert {
+        position: relative;
+        width: 300px;
+        min-height: 100px;
+        margin-top: 50px;
+        border: 1px solid #666;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: 20px 30px;
+      } */
+    </style>
   </head>
   <body>
-    <p>Please select your operator:</p>
-    <input type="radio" id="add" name="operator" value="one" />
-    <label for="add">ADD(+)</label><br />
-    <input type="radio" id="minus" name="operator" value="two" />
-    <label for="minus">MINUS(-)</label><br />
-    <input type="radio" id="mul" name="operator" value="three" />
-    <label for="mul">mul(*)</label><br />
-    <input type="radio" id="div" name="operator" value="four" />
-    <label for="div">div(/)</label><br /><br /><br />
-    <label for="number1"
-      >enter your first number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
-    >
-    <input type="text" id="number1" /><br /><br />
-    <label for="number2">enter your second number</label>
-    <input type="text" id="number2" /><br /><br />
-    <h3 id="h3"></h3>
-    <button id="cal">cal</button>
-
+    <section>
+      <p>Please select your operator:</p>
+      <input type="radio" id="add" name="operator" value="one" />
+      <label for="add">Add(+)</label><br />
+      <input type="radio" id="minus" name="operator" value="two" />
+      <label for="minus">Minis(-)</label><br />
+      <input type="radio" id="mul" name="operator" value="three" />
+      <label for="mul">Multiply(*)</label><br />
+      <input type="radio" id="div" name="operator" value="four" />
+      <label for="div">Division(/)</label><br /><br /><br />
+      <label for="number1">enter your first number</label><br />
+      <input type="text" id="number1" /><br /><br />
+      <label for="number2">enter your second number</label><br />
+      <input type="text" id="number2" /><br /><br />
+      <h3 id="h3"></h3>
+      <button id="cal">Calculate</button>
+    </section>
     <script>
       document.getElementById("cal").addEventListener("click", function () {
         const number1 = document.getElementById("number1").value;
         const number2 = document.getElementById("number2").value;
-        console.log(number1);
         let operator = document.querySelector(
           "input[name=operator]:checked"
-        ).value;
+        )?.value;
         let result;
-        switch (operator) {
-          case "one":
-            result = parseInt(number1 + number2);
-            console.log(number1 + number2);
-            document.getElementById("h3").innerHTML = result;
+        operator === undefined ?? alert("you must chose an operator");
+        if (operator != null && number1 && number2 != "") {
+          switch (operator) {
+            case "one":
+              result = parseInt(number1 + number2);
+              console.log(number1 + number2);
+              document.getElementById("h3").innerHTML = result;
 
-            break;
-          case "two":
-            result = number1 - number2;
-            document.getElementById("h3").innerHTML = result;
+              break;
+            case "two":
+              result = number1 - number2;
+              document.getElementById("h3").innerHTML = result;
 
-            break;
-          case "three":
-            result = number1 * number2;
-            document.getElementById("h3").innerHTML = result;
+              break;
+            case "three":
+              result = number1 * number2;
+              document.getElementById("h3").innerHTML = result;
 
-            break;
-          case "four":
-            result = number1 / number2;
-            document.getElementById("h3").innerHTML = result;
-            break;
+              break;
+            case "four":
+              result = number1 / number2;
+              document.getElementById("h3").innerHTML = result;
+              break;
+          }
+        } else {
+          alert("you must chose an operator and entering to numbers");
         }
       });
     </script>
