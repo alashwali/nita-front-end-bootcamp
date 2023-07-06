@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Json to JS Object & JS Object to JSON</h3>
+    <script>
+      //json to js object
+      const person =
+        '{ "FirstName": "Mark", "BirthDay": "1980-12-3","Location": "KSA", "Mail": "example@email.com"}';
+      let personObj = JSON.parse(person);
+      let year = (personObj.BirthDay = new Date(personObj.BirthDay));
+      console.log(
+        `Name: ${personObj.FirstName} \n age: ${personObj.BirthDay}\n Email: ${personObj.Mail}\n Location: ${personObj.Location}`
+      );
+
+      //   Js Object to JSON
+      const car = { name: "Volvo", Model: "XC90", color: "White" };
+      //   before
+      console.log(car);
+      const CarJson = JSON.stringify(car);
+      //   after
+      console.log(CarJson);
+    </script>
+  </body>
+</html>

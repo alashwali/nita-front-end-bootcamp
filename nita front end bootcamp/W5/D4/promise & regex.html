@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // promise
+      function myDisplay(some) {
+        console.log(some);
+      }
+      let promise = new Promise((resolve, reject) => {
+        let x = 5,
+          y = 1;
+        let z = x / y;
+        if (y !== 0) {
+          resolve("OK");
+        } else {
+          reject("error");
+        }
+      });
+      promise.then(
+        function (value) {
+          myDisplay(value);
+        },
+        function (error) {
+          myDisplay(value);
+        }
+      );
+
+      // regex.test() output=> boolean
+      const regex = /hello/;
+      console.log(regex.test("hello World"));
+      console.log(regex.test("Goodbye world"));
+
+      // regex.exec output=> null or array
+      console.log(regex.exec("hello World"));
+      console.log(regex.exec("Goodbye world"));
+
+      // string match(regex) output=> null or array
+      console.log("hello World".match(regex));
+      console.log("Goodbye world".match(regex));
+
+      // string .search()regex output=> 0 or -1
+      console.log("hello world".search(regex));
+      console.log("hi world".search(regex));
+
+      // string replace(regex, 'replacement')
+      console.log('hello'.replace(regex, 'amazing'));
+    </script>
+  </body>
+</html>
