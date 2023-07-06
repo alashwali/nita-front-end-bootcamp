@@ -56,8 +56,6 @@ section > p {
   text-align: justify;
   padding-left: 100px;
   color: #4c3610;
-  cursor:text;
-
 }
 .gridParent {
   padding: 10px;
@@ -67,15 +65,13 @@ section > p {
   position: absolute;
   left: 45em;
   top: 35em;
-  cursor:wait;
-
 }
 #img {
   z-index: 1;
   position: absolute;
-  left: 625px;
+  right: 0;
   bottom: 0;
-  width: 800px;
+  width: 900px;
   padding: 0px;
   float: right;
   margin: 0 0 0 15px;

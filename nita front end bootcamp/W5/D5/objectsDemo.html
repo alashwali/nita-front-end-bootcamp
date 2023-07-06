@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Objects Demo</h3>
+    <div id="container"></div>
+    <script>
+      const person = {
+        name: "john",
+        age: 30,
+        email: "john@example.com",
+        address: { street: "123 St", city: "any town", zip: "12345" },
+        sayHello: function () {
+          console.log(`Hello my name is ${this.name}`);
+        },
+      };
+      console.log(`name: ${person.name}, \nage: ${person.age}`);
+      console.log(person["age"]);
+      person.sayHello();
+
+      //   ------------------ Constructor Function ----------------------
+      function car(model, make, type, year) {
+        console.log(`car model ${(this.model = model)}`);
+        console.log(`car maker ${(this.make = make)}`);
+        console.log(`car Type ${(this.type = type)}`);
+        console.log(`car year ${(this.year = year)}`);
+      }
+      const volvoXC90 = new car("XC90", "Volvo", "SUV", 2022);
+      const BMW = new car("3Series", "BMW", "Sedan", 2022);
+      const GMY = new car("YuKUN", "GMY", "SUV", 2022);
+      const carArray = [volvoXC90, BMW, GMY];
+      var Table = "<table><tr>";
+      var cells = carArray.length;
+      carArray.forEach((element, i) => {
+        Table += `<TD>${element}</TD>`;
+        let a = i + 1;
+        if (a % cells == 0 && a != carArray.length) {
+          Table += "</tr><tr>";
+        }
+      });
+      document.getElementById("container").insertAdjacentHTML(
+        "afterend",
+        `<table><tr><th> ${Object.keys(carArray[0]).join("<th>")}
+          </th><tr><TD>${carArray
+            .map((e) => Object.values(e).join("<TD>"))
+            .join("<tr><TD>")}</table>`
+      );
+    </script>
+  </body>
+</html>

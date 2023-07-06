@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-     <nav class="navParent">
+    <!-- <nav class="navParent">
       <a href="#">
         <img
           id="logo"
@@ -21,15 +21,18 @@
       <a href="#" class="navItem">Shop</a>
       <a href="#" class="navItem">About Us</a>
       <a href="contactUs.html" class="navItem">Contact Us</a>
-    </nav>
-    </div>
+    </nav> -->
     <img
       id="img"
       src="./index/photo-1587734195503-904fca47e0e9-removebg-preview 1.png"
       alt=""
     />
-
-   
+    <div id="nav-module"></div>
+    <iframe src="./nav.html" frameborder="0" scrolling="no"></iframe>
+    <script type="module" >
+      import nav from './nav.html'
+    document.getElementById("nav-module").innerHTML=nav
+  </script>
     <section>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br />
