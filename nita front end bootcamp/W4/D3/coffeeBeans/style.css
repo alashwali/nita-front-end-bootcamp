@@ -3,6 +3,14 @@
   margin: 0;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+@media only screen and (max-width: 600px) {
+  #img {
+    display: none;
+  }
+}
+iframe {
+  width: 700px;
+}
 #logo {
   width: 190px;
   height: 150px;
@@ -38,7 +46,6 @@ footer {
   z-index: -1;
 }
 footer > img {
-  text-align: center;
   padding-left: 20%;
 }
 section {
@@ -49,7 +56,8 @@ section > p {
   text-align: justify;
   padding-left: 100px;
   color: #4c3610;
-  cursor: text;
+  cursor:text;
+
 }
 .gridParent {
   padding: 10px;
@@ -59,11 +67,16 @@ section > p {
   position: absolute;
   left: 45em;
   top: 35em;
-  cursor: wait;
+  cursor:wait;
+
 }
 #img {
   z-index: 1;
   position: absolute;
-  left: 54%;
+  left: 625px;
   bottom: 0;
+  width: 800px;
+  padding: 0px;
+  float: right;
+  margin: 0 0 0 15px;
 }
