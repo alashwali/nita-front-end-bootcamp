@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const personPrototype = {
+        greeting: function () {
+          console.log(
+            `Hello, my name is ${this.name} and I am ${this.age} years old.`
+          );
+        },
+        ageInDays: function () {
+          console.log(`Iam ${this.age * 365} days old`);
+        },
+        
+      };
+ 
+      const person1 = Object.create(personPrototype);
+      person1.name = "john";
+      person1.age = 35;
+
+      const person2 = Object.create(personPrototype);
+      person2.name = "jane";
+      person2.age = 26;
+
+      person1.greeting();
+      person1.ageInDays();
+      person2.greeting();
+      person2.ageInDays();
+    </script>
+  </body>
+</html>

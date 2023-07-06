@@ -1,4 +1,4 @@
-export const nav = (
+export const nav = console.log("test")(
   <html>
     <nav class="navParent">
       <a href="#">
