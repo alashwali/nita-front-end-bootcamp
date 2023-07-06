@@ -17,28 +17,19 @@
           this.type = type;
           this.year = year;
         }
-        //   ------------------Class Methods:--------------------
-        age() {
-          const date = new Date();
-          return date.getFullYear() - this.year;
+        //   ------------------Class Methods with parameter:--------------------
+        age(y) {
+          return y - this.year;
         }
       }
       const volvoXC90 = new car("XC90", "Volvo", "SUV", 2022);
       const BMW = new car("3Series", "BMW", "Sedan", 2022);
       const GMY = new car("YuKUN", "GMY", "SUV", 2022);
-      let carMethod = volvoXC90.age();
+      let carMethod = volvoXC90.age(2024);
       // -------------------------
       document.getElementById(
         "demo"
       ).innerHTML += `<br> ${volvoXC90.make},<br> ${BMW.make} <br> ${carMethod}years old.`;
-      document.getElementById("demo2").innerHTML =
-        volvoXC90.make +
-        "<br>" +
-        BMW.make +
-        "<br>" +
-        volvoXC90.age() +
-        "years old.";
-      // -------------------------
     </script>
   </body>
 </html>
