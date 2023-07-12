@@ -5,4 +5,4 @@ app.get('/',(req,res)=>{
 })
 app.listen(3000,()=>{
     console.log("Server is running on http://Localhost:3000");
-})cd 
+})
