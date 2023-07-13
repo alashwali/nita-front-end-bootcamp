@@ -14,8 +14,7 @@ const contentType =function getContentType(filePath) {
       fs.readFile(filePath, (error, content) => {
         if (error) {
         if (error.code === 'ENOENT') {
-            response.writeHead(404);
-       response.end('Error: File not found');
+            response.writeHead(404);       response.end('Error: File not found');
        } else {
       respowriteHead(500);
      respoend('Error: Internal server error');
