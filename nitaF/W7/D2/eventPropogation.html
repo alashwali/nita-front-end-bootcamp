@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner">
+        <button id="my-button">Click me</button>
+      </div>
+    </div>
+    <script>
+      const outer = document.querySelector("#outer");
+      const inner = document.querySelector("#inner");
+      const button = document.querySelector("#my-button");
+      outer.addEventListener("click", function () {
+        console.log("Outer clicked");
+        // event.stopPropagation()
+
+      },true);
+      inner.addEventListener("click", function () {
+        console.log("Inner clicked");
+
+      },true);
+      button.addEventListener("click", function () {
+        console.log("Button clicked");
+      });
+
+      outer.addEventListener("click", function () {
+        console.log("Outer clicked");
+      });
+      inner.addEventListener("click", function () {
+        console.log("Inner clicked");
+      });
+      button.addEventListener("click", function () {
+        console.log("Button clicked");
+        console.log(event.target); // the button element
+		console.log(event.type); // "click"
+		console.log(event.timeStamp); // the timestamp of the event
+      });
+	
+
+    </script>
+  </body>
+</html>
