@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>navigator object demo</h3>
+    <script>
+      // Get the user agent string
+      var userAgent = navigator.userAgent;
+      console.log("Agent", userAgent);
+      // Get the browser vendor name
+      var vendor = navigator.vendor;
+      console.log("VendorName", vendor);
+      // Check if cookies are enabled
+      var cookiesEnabled = navigator.cookieEnabled;
+      console.log("CookiesEnabledNot:", cookiesEnabled);
+      // Get the user's current location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+      function showPosition(position) {
+        console.log(`Latitude: ${position.coords.latitude}`);
+        console.log(`Longitude: ${position.coords.longitude}`);
+      }
+      //   length of history
+      let historyLength = history.length;
+      console.log(`Current Sessions History Length: ${historyLength}.`);
+    </script>
+    <button onclick="history.back()">Backward</button>
+    <button onclick="history.forward()">Forward</button>
+
+    <script>
+        const button=document.querySelector('.button')
+    </script>
+  </body>
+</html>
