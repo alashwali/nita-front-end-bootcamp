@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <canvas id="canvasT"></canvas>
+    <script>
+      // ------------------drawTriangle-------------------------------
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "Green";
+      ctx.fillRect(10, 10, 50, 50);
+
+    //   function drawRectangle(ctx, p1, p2, p3, p4) {
+    //     context.beginPath();
+    //     ctx.moveTo(p1.x, p1.y);
+    //     ctx.lineTo(p2.x, p2.y);
+    //     ctx.lineTo(p3.x, p3.y);
+    //     ctx.lineTo(p4.x, p4.y);
+    //     ctx.closePath();
+    //     ctx.fillStyle = "Green";
+    //     ctx.fill();
+    //   }
+    //   const canvas = document.getElementById("canvas");
+    //   const ctx = canvas.getContext("2d");
+    //   const p1 = { x: 100, y: 200 };
+    //   const p2 = { x: 200, y: 200 };
+    //   const p3 = { x: 100, y: 280 };
+    //   const p4 = { x: 200, y: 280 };
+    //   drawRectangle(ctx, p1, p2, p3, p4);
+      // ------------------drawTriangle-------------------------------
+      function drawTriangle(context, point1, point2, point3, color) {
+        context.beginPath();
+        context.moveTo(point1.x, point1.y);
+        context.lineTo(point2.x, point2.y);
+        context.lineTo(point3.x, point3.y);
+        context.closePath();
+        context.fillStyle = color;
+        context.fill();
+      }
+      var canvasT = document.getElementById("canvasT");
+      var context = canvas.getContext("2d");
+      const point1 = { x: 30, y: 180 };
+      const point2 = { x: 170, y: 160 };
+      const point3 = { x: 100, y: 30 };
+      drawTriangle(context, point1, point2, point3, "red");
+    </script>
+  </body>
+</html>
