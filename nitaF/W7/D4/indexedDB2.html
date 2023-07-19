@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Indexed DB Example</h3>
+    <form onsubmit="addData(event)">
+      <label for="name">First name</label>
+      <input type="text" id="name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="age">Age</label>
+      <input type="number" id="age" />
+      <input type="submit" value="Add Data" />
+    </form>
+    <button onclick="readData()">Read Data</button>
+    <div id="output"></div>
+    <script>
+      let output = document.getElementById("output");
+      let name = document.getElementById("name");
+      let email = document.getElementById("email");
+      let age = document.getElementById("age");
+      let db;
+      function createDB() {
+        const dbName = "myDatabase";
+        const dbVersion = 1;
+        const request = window.indexedDB.open(dbName, dbVersion);
+        request.onerror = function (event) {
+          console.error("Error Creating Database", event.target.error);
+        };
+        request.onupgradeneeded = function (event) {
+          db = event.target.result;
+          const objectStore = db.createObjectStore("myObjectStore", {
+            KeyPath: "id",
+        
+          });
+          objectStore.createIndex("name", "name", { unique: false });
+          objectStore.createIndex("email", "email", { unique: false });
+          objectStore.createIndex("age", "age", { unique: false });
+          console.log(`Database Created Successfully`);
+        };
+        request.onsuccess = function (event) {
+          db = event.target.result;
+          console.log(`Database Opened Successfully`);
+        };
+      }
+      function addData(event) {
+        event.preventDefault();
+        const tranSaction = db.transaction(["myObjectStore"], "readwrite");
+        const objectStore = tranSaction.objectStore("myObjectStore");
+        const data = { name: name.value, email: email.value, age: age.value };
+        const request = objectStore.add(data);
+        request.onsuccess = function (event) {
+          console.log("Data Added");
+          name.value = "";
+          email.value = "";
+          age.value = "";
+        };
+        request.onerror = function (event) {
+          console.log(`Error while adding Data`, event.target.error);
+        };
+      }
+      function readData() {
+        const transaction = db.transaction(["myObjectStore"], "readonly");
+        const objectStore = transaction.objectStore("myObjectStore");
+        const request = objectStore.getAll();
+        request.onsuccess = function (event) {
+          const data = event.target.result;
+          displayData(data);
+        };
+        request.onerror = function (event) {
+          console.log(`Error while reading data!` ,event.target.error);
+        };
+      }
+      function displayData(data) {
+        output.innerHTML = "";
+        if (data.length === 0) {
+            outputDiv.textContent = "No data in the database.";
+        } else {
+          data.forEach((element) => {
+            const paragraph = document.createElement("P");
+            paragraph.textContent = `Name: ${element.name}\nEmail: ${element.email}\nAge: ${element.age}`;
+            output.appendChild(paragraph);
+          });
+        }
+      }
+      createDB();
+    </script>
+  </body>
+</html>

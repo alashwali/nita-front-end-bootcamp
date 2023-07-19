@@ -28,13 +28,13 @@ console.log(longestWord("asma ahmed alashwali"));
 
 // calc factorial of number
 function factorial(number) {
+  let r = 1;
   for (let i = number; i >= 1; i--) {
-    number = number * i;
-    console.log((number = number * i));
+    r *= i;
   }
-  return number;
+  return r;
 }
-console.log(`factorial= ${factorial(5)}`);
+console.log(`factorial= ${factorial(4)}`);
 // valid URL
 function validURL(str) {
   var pattern = new RegExp(
@@ -80,3 +80,5 @@ function sumArr(arr) {
   return sum;
 }
 console.log(sumArr(array1));
+
+//

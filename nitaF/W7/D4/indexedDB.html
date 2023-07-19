@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>IndexedDB Example</title>
+      </head>
+      <body>
+        <h1>IndexedDB Example</h1>
+        <form onsubmit="addData(event)">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required /><br />
+          <label for="age">Age:</label>
+          <input type="number" id="age" required /><br />
+          <input type="submit" value="Add Data" />
+        </form>
+        <button onclick="readData()">Read Data</button>
+        <div id="output"></div>
+
+        <script>
+          let db;
+
+          // Function to create the IndexedDB database
+          function createDatabase() {
+            const dbName = "myDatabase";
+            const dbVersion = 1;
+
+            const request = window.indexedDB.open(dbName, dbVersion);
+
+            request.onerror = function (event) {
+              console.error("Error creating database:", event.target.error);
+            };
+
+            request.onupgradeneeded = function (event) {
+              db = event.target.result;
+
+              const objectStore = db.createObjectStore("myObjectStore", {
+                keyPath: "id",
+                autoIncrement: true,
+              });
+
+              objectStore.createIndex("name", "name", { unique: false });
+              objectStore.createIndex("age", "age", { unique: false });
+
+              console.log("Database created and object store created!");
+            };
+
+            request.onsuccess = function (event) {
+              db = event.target.result;
+              console.log("Database opened successfully!");
+            };
+          }
+
+          // Function to add data to the database
+          function addData(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById("name");
+            const ageInput = document.getElementById("age");
+
+            const transaction = db.transaction(["myObjectStore"], "readwrite");
+            const objectStore = transaction.objectStore("myObjectStore");
+
+            const data = {
+              name: nameInput.value,
+              age: parseInt(ageInput.value),
+            };
+
+            const request = objectStore.add(data);
+
+            request.onsuccess = function (event) {
+              console.log("Data added to the database successfully!");
+              nameInput.value = "";
+              ageInput.value = "";
+            };
+
+            request.onerror = function (event) {
+              console.error("Error adding data:", event.target.error);
+            };
+          }
+
+          // Function to read data from the database
+          function readData() {
+            const transaction = db.transaction(["myObjectStore"], "readonly");
+            const objectStore = transaction.objectStore("myObjectStore");
+
+            const request = objectStore.getAll();
+
+            request.onsuccess = function (event) {
+              const data = event.target.result;
+              displayData(data);
+            };
+
+            request.onerror = function (event) {
+              console.error("Error retrieving data:", event.target.error);
+            };
+          }
+
+          // Function to display the retrieved data
+          function displayData(data) {
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+
+            if (data.length === 0) {
+              outputDiv.textContent = "No data in the database.";
+            } else {
+              data.forEach((item) => {
+                const paragraph = document.createElement("p");
+                paragraph.textContent = `Name: ${item.name}, Age: ${item.age}`;
+                outputDiv.appendChild(paragraph);
+              });
+            }
+          }
+
+          // Call the function to create the database when the page loads
+          createDatabase();
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
