@@ -35,7 +35,7 @@
         };
         request.onupgradeneeded = function (event) {
           db = event.target.result;
-          const objectStore = db.createObjectStore("myObjectStore", {
+          const objectStore = db.createObjectStore("myObjectStore", { 
             KeyPath: "id",
         
           });
