@@ -15,23 +15,26 @@
     <section>
       <h1>This is Contact us page</h1>
       <br />
-      <button id="home">shop</button>
-      <button id="contact">content</button>
+      <button  onclick="fetchPage('shop')">shop</button>
+      <button  onclick="fetchPage('home')">Home</button>
     </section>
     <script>
       //--------------------------http request---------------------------
-
       function fetchPage(page) {
-        fetch(`/${page}`)
-          .then((response) => response.text())
-          .then((data) => (document.querySelector("*").innerHTML = data));
+        fetch(`/${page}`);
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              document.querySelector("*").innerHTML = xhr.responseText;
+            } else {
+              console.log(`error ${xhr.status}`);
+            }
+          }
+        };
+        xhr.open(`Get`, `/${page}`);
+        xhr.send();
       }
-      document.getElementById("home").addEventListener("click", () => {
-        fetchPage("home");
-      });
-      document.getElementById("contact").addEventListener("click", () => {
-        fetchPage("contact");
-      });
     </script>
   </body>
 </html>
