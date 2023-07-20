@@ -14,24 +14,19 @@
     </nav>
     <section>
       <h1>This is Home Page</h1>
-      <br>
-      <!-- <button id="shop">shop</button>
-      <button id="contact">content</button> -->
+      <br />
+      <button id="shop" onclick="fetchPage('shop')">shop</button>
+      <button id="contact" onclick="fetchPage('contact')">content</button>
+      <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     </section>
-    
-    <!-- <script>
+    <script>
+      //--------------------------axios---------------------------
       function fetchPage(page) {
-        fetch(`/${page}`)
-          .then((response) => response.text())
-          .then((data) => (document.querySelector("*").innerHTML = data));
+        axios.get(`/${page}`)
+          .then(response=> {document.querySelector("*").innerHTML =response.data;})
+          .catch(error => {console.log(`error`,error);});
       }
-      document.getElementById("shop").addEventListener("click", () => {
-        fetchPage("shop");
-      });
-      document.getElementById("contact").addEventListener("click", () => {
-        fetchPage("contact");
-      });
-    </script> -->
+    </script>
     <footer>
       © 2023 Coffee Beans. All Rights Reserved.
       <img src="./index/Group 2.png" alt="" />

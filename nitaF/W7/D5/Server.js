@@ -23,3 +23,14 @@ app.get("/contactUs", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is Running on http://loclhost:${PORT}`);
 });
+
+// let fetchPage = function fetchPage(page) {
+//   axios
+//     .get(`/${page}`)
+//     .then((response) => {
+//       document.querySelector("*").innerHTML = response.data;
+//     })
+//     .catch((error) => {
+//       console.log(`error`, error);
+//     });
+// };

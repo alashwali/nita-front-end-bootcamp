@@ -14,11 +14,24 @@
     </nav>
     <section>
       <h1>This is Shop Page</h1>
-<br>
-      <button id="home">home</button>
+
+      <button id="shop">home</button>
       <button id="contact">content</button>
     </section>
-
+    <script>
+      //--------------------------fetch---------------------------
+      function fetchPage(page) {
+        fetch(`/${page}`)
+          .then((response) => response.text())
+          .then((data) => (document.querySelector("*").innerHTML = data));
+      }
+      document.getElementById("shop").addEventListener("click", () => {
+        fetchPage("shop");
+      });
+      document.getElementById("contact").addEventListener("click", () => {
+        fetchPage("contact");
+      });
+    </script>
     <footer>
       © 2023 Coffee Beans. All Rights Reserved.
       <img src="./index/Group 2.png" alt="" />

@@ -18,6 +18,20 @@
       <button id="home">shop</button>
       <button id="contact">content</button>
     </section>
+    <script>
+      //--------------------------http request---------------------------
 
+      function fetchPage(page) {
+        fetch(`/${page}`)
+          .then((response) => response.text())
+          .then((data) => (document.querySelector("*").innerHTML = data));
+      }
+      document.getElementById("home").addEventListener("click", () => {
+        fetchPage("home");
+      });
+      document.getElementById("contact").addEventListener("click", () => {
+        fetchPage("contact");
+      });
+    </script>
   </body>
 </html>
