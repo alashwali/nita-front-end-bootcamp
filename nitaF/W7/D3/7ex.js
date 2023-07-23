@@ -15,7 +15,7 @@ console.log(numbers(0));
 
 // ------------------------------------find thw longest word in a string---------------------------------------
 function longestWord(str) {
-  str = str.match(/[a-zA-Z0-9]+/gi);
+  str = str.split(" ");
   let largest = "";
   for (let i = 0; i < str.length; i++) {
     if (str[i].length > largest.length) {
