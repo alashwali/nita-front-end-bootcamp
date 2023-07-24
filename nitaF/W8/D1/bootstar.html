@@ -20,6 +20,7 @@
     <style>
       section {
         margin-left: 1%;
+        margin-top: 205px;
       }
       .img {
         width: 40%;
@@ -38,15 +39,18 @@
       .input-group-append {
         cursor: pointer;
       }
+      /* .empty{
+        height: 300px;
+      } */
     </style>
   </head>
   <body>
     <!-----------------------start navbar---------------------------- -->
     <nav
-      class="navbar navbar-expand-sm navbar-dark"
-      style="background-color: #07375a"
+      class="navbar navbar-expand-sm navbar-dark fixed-top"
+      style="background-color: #8b8987"
     >
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#"><img src="./logo.png" alt="" /></a>
       <button
         class="navbar-toggler d-lg-none"
         type="button"
@@ -64,8 +68,9 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Shop</a>
           </li>
+
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -74,26 +79,21 @@
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-              >Dropdown</a
+              >About us</a
             >
             <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#">Action 1</a>
-              <a class="dropdown-item" href="#">Action 2</a>
+              <a class="dropdown-item" href="#">our Story</a>
+              <a class="dropdown-item" href="#">our Vision</a>
+              <a class="dropdown-item" href="#">our Mission</a>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
       </div>
     </nav>
+    <!-- <div class="empty"></div> -->
     <!-----------------------section---------------------------- -->
     <section>
       <div class="container">
@@ -142,7 +142,7 @@
       <hr />
       <br />
       <!-----------------------text bg---------------------------- -->
-      <div class="container">
+      <div class="m-5">
         <div class="row">
           <div class="col-sm-6">
             <p class="text-primary">.text-primary</p>
@@ -174,7 +174,7 @@
       <!-----------------------buttons---------------------------- -->
       <div class="container">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="btn-group-verica">
             <button type="button" class="btn btn-primary">Primary</button>
             <button type="button" class="btn btn-secondary">Secondary</button>
             <button type="button" class="btn btn-success">Success</button>
@@ -402,7 +402,7 @@
         </div>
 
         <div class="form-check form-check-inline">
-          <label class="form-check-label">
+          <label class="form-check-label badge-secondary">
             <input
               class="form-check-input"
               type="checkbox"
@@ -442,7 +442,7 @@
       <br />
       <hr />
       <!-- -----------------Form Input Group------------ -->
-      <div class="input-group mb-3">
+      <div class="input-group mb-3 col-xl-6 col-lg-5 col=md-4">
         <div class="input-group-prepend">
           <span class="input-group-text">https://</span>
         </div>
@@ -469,13 +469,62 @@
       <script>
         let text = document.getElementById("website");
         document.getElementById("submit").addEventListener("click", () => {
-          window.location.href=`https://${text.value}.com`;
+          window.location.href = `https://${text.value}.com`;
         });
       </script>
       <br />
       <hr />
-     
+      <!--------------------------- float demo----------------- -->
+      <div class="m-3">
+        <div class="float-left col-sm-4">
+          <h4 class="bg-success">this is first demo for float</h4>
+        </div>
+        <div class="float-lg-right col-sm-4">
+          <h4 class="bg-info">this is second demo for float</h4>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <!--------------------------- calculator demo----------------- -->
+      <div class="m-5" id="calc">
+        <span class="badge badge-primary">1</span>
+        <span class="badge badge-primary">2</span>
+        <span class="badge badge-primary">3</span>
+        <span class="badge badge-secondary">+</span>
+        <br />
+        <span class="badge badge-primary">4</span>
+        <span class="badge badge-primary">5</span>
+        <span class="badge badge-primary">6</span>
+        <span class="badge badge-secondary">-</span>
+        <br />
+        <span class="badge badge-primary">7</span>
+        <span class="badge badge-primary">8</span>
+        <span class="badge badge-primary">9</span>
+        <span class="badge badge-secondary">*</span>
+        <br /><span class="badge badge-primary">0</span>
+        <span class="badge badge-secondary">/</span>
+        <span class="badge badge-secondary" id="c">C</span>
+        <br /><br />
+        <p id="p"></p>
+        <button id="s" class="btn btn-primary">calculate</button>
+      </div>
     </section>
+    <script>
+      var spans = document.querySelectorAll("div#calc > span");
+      let txt = document.getElementById("p");
+      for (i = 0; i < spans.length; i++)
+        spans[i].onclick = function () {
+          let val = this.innerHTML;
+          txt.innerHTML += val;
+        };
+      document.getElementById("s").addEventListener("click", () => {
+        txt.innerHTML = eval(txt.textContent);
+      });
+      document.getElementById("c").addEventListener("click", () => {
+        txt.innerHTML = " ";
+      });
+    </script>
+    <br /><br />
     <!--------------------------- footer----------------- -->
     <footer class="bg-dark text-center text-white">
       <!-- Grid container -->
