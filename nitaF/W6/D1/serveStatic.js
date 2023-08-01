@@ -2,7 +2,7 @@ import http from 'http'
 import path from 'path'
 import fs from 'fs'
 const server = http.createServer((request, response) => {
-const filePath = path.join(__dirname, 'public', request.url === '/' ? 'index.html' : request.url);}
+const filePath = path.join(__dirname, 'public', request.url === '/' ? 'index.html' : request.url);})
 const contentType =function getContentType(filePath) {
     const extname = path.extname(filePath);
     switch (extname) {
@@ -20,6 +20,6 @@ const contentType =function getContentType(filePath) {
      respoend('Error: Internal server error');
       }} else {
          responwriteHead(200, {'Content-Type':  contentType});
-      responend(content, 'utf-8');}});});
+      responend(content, 'utf-8');}});};
 
     
