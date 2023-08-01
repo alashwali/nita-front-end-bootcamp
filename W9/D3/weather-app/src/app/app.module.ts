@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { WeatherDisplayComponent } from './weather-display/weather-display.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherDisplayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
