@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Weather</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script>
+      async function getWeather() {
+        const city = document.getElementById("city").value;
+        const date = document.getElementById("date").value;
+        console.log(date);
+        const APIKey = "9625a4ff18d8425db7092439230108";
+        let result = document.getElementById("result");
+        const APIURL = `http://api.weatherapi.com/v1/history.json?key=${APIKey}&q=${city}&dt=${date}`;
+        try {
+          const response = await fetch(APIURL);
+          const data = await response.json();
+          const max = data.forecast.forecastday[0].day.maxtemp_c;
+          const min = data.forecast.forecastday[0].day.mintemp_c;
+          result.innerText = `The Maximum temperature for ${city} is ${max}°C, while the Minimum temperature is ${min}°C`;
+        } catch (error) {
+          console.log(`Error Fetching Data.${error}`);
+          result.innerText = `Error Fetching Temperature!`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h3>Weather Details as per city</h3>
+    <input type="text" id="city" />
+    <input type="date" id="date" />
+    <button onclick="getWeather()">Get Temperature</button>
+    <div id="result"></div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

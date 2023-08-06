@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stock Price Website</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script>
+      async function getSockPrice() {
+        const APIKey = "SRYIqfxx5YP7ewjtMZo49BHLRrSJdUdp";
+        const stockSymbol = "AAPL"; //ticker symbol for apple inc
+        // const APIURL = `https://api.polygon.io/v1/stocks/${stockSymbol}?apiKey=${APIKey}`;
+        const APIURL = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/prev?adjusted=true&apiKey=${APIKey}`;
+        const result = document.querySelector(".result");
+        try {
+          const response = await fetch(APIURL);
+          const data = await response.json();
+          const price = data.results[0].l;
+          result.innerHTML = `Current Price of ${stockSymbol} is ${price}`;
+        } catch (error) {
+          result.innerHTML = `Error Fetching Price!!!${error}`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h3>Stock Price</h3>
+    <button onclick="getSockPrice()">Get Apple Stock Price</button>
+    <div class="result"></div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
