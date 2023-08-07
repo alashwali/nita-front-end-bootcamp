@@ -19,14 +19,15 @@
     <script>
       async function getSockPrice() {
         const APIKey = "SRYIqfxx5YP7ewjtMZo49BHLRrSJdUdp";
-        const stockSymbol = "AAPL"; //ticker symbol for apple inc
-        // const APIURL = `https://api.polygon.io/v1/stocks/${stockSymbol}?apiKey=${APIKey}`;
-        const APIURL = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/prev?adjusted=true&apiKey=${APIKey}`;
+        const stockSymbol = document.getElementById("name").value; //ticker symbol for apple inc
+        const date = document.getElementById("date").value; //ticker symbol for apple inc
+        const APIURL = `https://api.polygon.io/v2/aggs/ticker/${stockSymbol}/range/1/day/${date}/${date}?unadjusted=true&apiKey=SRYIqfxx5YP7ewjtMZo49BHLRrSJdUdp`;
         const result = document.querySelector(".result");
         try {
           const response = await fetch(APIURL);
           const data = await response.json();
-          const price = data.results[0].l;
+          const price = data.results[0].o;
+
           result.innerHTML = `Current Price of ${stockSymbol} is ${price}`;
         } catch (error) {
           result.innerHTML = `Error Fetching Price!!!${error}`;
@@ -36,6 +37,8 @@
   </head>
   <body>
     <h3>Stock Price</h3>
+    <input type="text" id="name" />
+    <input type="date" id="date" />
     <button onclick="getSockPrice()">Get Apple Stock Price</button>
     <div class="result"></div>
     <!-- Optional JavaScript -->
