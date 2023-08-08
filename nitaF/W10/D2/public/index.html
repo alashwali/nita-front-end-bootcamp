@@ -50,16 +50,20 @@
           <label for="year" class="form-label">year</label>
           <input type="number" id="year" class="form-control" />
         </div>
+
+        <div class="m-3">
+          <label for="img" class="form-label">img</label>
+          <input type="file" id="img" class="form-control" accept="image/*" />
+        </div>
         <button type="submit" class="btn btn-primary">Add Car</button>
       </form>
       <div></div>
     </div>
+    
     <script>
       const carDetails = document.getElementById("carDetails");
       const addCarForm = document.getElementById("formAddCar");
-      const make = document.getElementById("make");
-      const model = document.getElementById("model");
-      const year = document.getElementById("year");
+
       fetch("/api/cars")
         .then((response) => response.json())
         .then((data) => {
@@ -79,29 +83,32 @@
 
       addCarForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        make.value;
-        model.value;
-        parseInt(year.value);
-        const newCar = { make, model, year };
-      });
-      fetch("/api/cars", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newCar),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          carDetails.innerHTML += `<tr>
+        const make = document.getElementById("make").value;
+        const model = document.getElementById("model").value;
+        const year = parseInt(document.getElementById("year").value);
+        const img = document.getElementById("img").value;
+
+        const newCar = { make, model, year, img };
+        fetch("/api/cars", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newCar),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            carDetails.innerHTML += `<tr>
                 <td>${data.car.id}</td>
                 <td>${data.car.make}</td>
                 <td>${data.car.model}</td>
                 <td>${data.car.year}</td>
+                <td><img src="upload/${data.car.img}" width="100px"></td>
                 </tr>`;
-          addCarForm.reset();
-        })
-        .catch((error) => {
-          console.log(`Error Adding Car! ${error}`);
-        });
+            addCarForm.reset();
+          })
+          .catch((error) => {
+            console.log(`Error Adding Car! ${error}`);
+          });
+      });
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
