@@ -53,13 +53,19 @@
 
         <div class="m-3">
           <label for="img" class="form-label">img</label>
-          <input type="file" id="img" class="form-control" accept="image/*" />
+          <input
+            type="file"
+            id="img"
+            class="form-control"
+            accept="image/*"
+            onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])"
+          />
         </div>
         <button type="submit" class="btn btn-primary">Add Car</button>
       </form>
       <div></div>
     </div>
-    
+
     <script>
       const carDetails = document.getElementById("carDetails");
       const addCarForm = document.getElementById("formAddCar");
@@ -101,13 +107,14 @@
                 <td>${data.car.make}</td>
                 <td>${data.car.model}</td>
                 <td>${data.car.year}</td>
-                <td><img src="upload/${data.car.img}" width="100px"></td>
+                <td><img id="blah" width="100px"></td>
                 </tr>`;
             addCarForm.reset();
           })
           .catch((error) => {
             console.log(`Error Adding Car! ${error}`);
           });
+        //<td><img src="${URL.createObjectURL(data.car.files[0])}" width="100px"></td>
       });
     </script>
     <!-- Optional JavaScript -->
